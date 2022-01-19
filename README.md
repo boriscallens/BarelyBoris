@@ -1,5 +1,5 @@
 # BarelyBoris
-It's Boris allright. But barely.
+It's Boris alright. But barely.
 
 # create-svelte
 

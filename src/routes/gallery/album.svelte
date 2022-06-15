@@ -9,10 +9,16 @@
 </script>
 
 <script lang="ts">
-	export let album: PhotoAlbum = undefined;
+	export let album: PhotoAlbum = {
+        id: 0,
+        name: "",
+        coverUri: "",
+        slug: "",
+        itemCount: 0
+    };
 </script>
 
-<a class="gallery-album" href="./gallery/{album.slug}">
+<a class="gallery-album" href="./">
     <img class="album-cover" src="{album.coverUri}" alt="cover art for {album.name}">
     <div class="album-info">
         <h3 class="album-name">{album.name}</h3>

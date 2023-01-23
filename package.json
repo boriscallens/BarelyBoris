@@ -23,6 +23,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth/sveltekit": "^0.1.12",
 		"@fontsource/fira-mono": "^4.5.10"
 	}
 }

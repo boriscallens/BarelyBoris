@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "**"
+      - '!main'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -14,6 +15,7 @@ jobs:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
+    environment: "${{github.event_name == 'push' && 'production' || 'staging'}}"
     steps:
       - uses: actions/checkout@v2
         with:

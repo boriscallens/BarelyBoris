@@ -8,7 +8,7 @@
 
 <section class=flex-cell>
 	<h1>Hi there! I'm Boris</h1>
-	<h2>Admittedly, only barely so.	</h2>
+	<h2>Admittedly, only barely so.</h2>
 
 	<p>I wanted a place to store my projects and experiments. This is that place</p>
 </section>

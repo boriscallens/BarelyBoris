@@ -9,7 +9,7 @@
                             "clientSecretSettingName": "AUTH0_SECRET"
                         },
                         "openIdConnectConfiguration": {
-                            "wellKnownOpenIdConfiguration": "https://bareyboris.eu.auth0.com/.well-known/openid-configuration"
+                            "wellKnownOpenIdConfiguration": "https://barelyboris.eu.auth0.com/.well-known/openid-configuration"
                         }
                     },
                     "login": {

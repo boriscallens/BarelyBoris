@@ -1,4 +1,8 @@
 {
+    {
+        "route": "/.auth/*",
+        "statusCode": 404
+    },
     "auth": {
         "identityProviders": {
             "customOpenIdConnectProviders": {

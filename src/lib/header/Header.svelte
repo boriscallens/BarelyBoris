@@ -21,6 +21,7 @@
 
 	<div class="corner">
 		<!-- TODO put something else here? github link? -->
+		{#if $page.data?.session?.user}
 	</div>
 </header>
 

@@ -25,6 +25,7 @@
 	"dependencies": {
 		"@auth/core": "^0.4.0",
 		"@auth/sveltekit": "^0.2.1",
-		"@fontsource/fira-mono": "^4.5.10"
+		"@fontsource/fira-mono": "^4.5.10",
+		"@vitejs/plugin-basic-ssl": "^1.0.1"
 	}
 }

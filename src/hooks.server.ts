@@ -3,7 +3,7 @@ import { AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_ISSUER_BASE_URL } from "$en
 import { SvelteKitAuth } from "@auth/sveltekit";
 import { redirect, type Handle } from "@sveltejs/kit";
 import { sequence } from "@sveltejs/kit/hooks";
-import Auth0 from "@auth/core/providers/Auth0"
+import Auth0 from "@auth/core/providers/auth0"
 
 export const authorization: Handle = async ({ event, resolve }) => {
   // Protect any routes under /authenticated

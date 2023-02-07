@@ -23,8 +23,8 @@ jobs:
         uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
-          envkey_AUTH0_ISSUER_BASE_URL: ${{ env.AUTH0_ISSUER_BASE_URL }}
-          envkey_AUTH0_CLIENT_ID: ${{ env.AUTH0_CLIENT_ID }}
+          envkey_AUTH0_ISSUER_BASE_URL: ${{ vars.AUTH0_ISSUER_BASE_URL }}
+          envkey_AUTH0_CLIENT_ID: ${{ vars.AUTH0_CLIENT_ID }}
           envkey_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
           fail_on_empty: true
       - name: Build And Deploy

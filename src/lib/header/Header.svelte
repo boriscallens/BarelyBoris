@@ -1,115 +1,136 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-</script>
+	import { signIn, signOut } from "@auth/sveltekit/client";
+	import { page } from "$app/stores";
+  </script>
 
-<header>
+  <header>
 	<div class="corner">
-		<!-- TODO home with logo if I ever get around to making one -->
+	  <!-- TODO home with logo if I ever get around to making one -->
 	</div>
 
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
+	  <svg viewBox="0 0 2 3" aria-hidden="true">
+		<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
+	  </svg>
+	  <ul>
+		<li class:active={$page.url.pathname === "/"}>
+		  <a href="/">Home</a>
+		</li>
+		<li class:active={$page.url.pathname.startsWith("/name-pairs")}>
+			<a href="/name-pairs">Name Pairs</a>
+		</li>
+	  </ul>
+	  <svg viewBox="0 0 2 3" aria-hidden="true">
+		<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
+	  </svg>
 	</nav>
 
 	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+	  {#if $page.data.session}
+		{#if $page.data.session.user?.image}
+		  <span
+			style="background-image: url('{$page.data.session.user.image}')"
+			class="avatar"
+		  />
+		{/if}
+		<span class="signedInText">
+		  <small>Signed in as</small><br />
+		  <strong>{$page.data.session.user?.name ?? "User"}</strong>
+		</span>
+		<button on:click={() => signOut()} class="button">Sign out</button>
+	  {:else}
+		<span class="notSignedInText">You are not signed in</span>
+		<button on:click={() => signIn("auth0")}>Sign In</button>
+	  {/if}
 	</div>
-</header>
+  </header>
 
-<style>
+  <style>
 	header {
-		display: flex;
-		justify-content: space-between;
+	  display: flex;
+	  justify-content: space-between;
 	}
 
 	/* .corner {
-		width: 3em;
-		height: 3em;
-	}
+		  width: 3em;
+		  height: 3em;
+	  }
 
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
+	  .corner a {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  width: 100%;
+		  height: 100%;
+	  }
 
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	} */
+	  .corner img {
+		  width: 2em;
+		  height: 2em;
+		  object-fit: contain;
+	  } */
 
 	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+	  display: flex;
+	  justify-content: center;
+	  --background: rgba(255, 255, 255, 0.7);
 	}
 
 	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
+	  width: 2em;
+	  height: 3em;
+	  display: block;
 	}
 
 	path {
-		fill: var(--background);
+	  fill: var(--background);
 	}
 
 	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
+	  position: relative;
+	  padding: 0;
+	  margin: 0;
+	  height: 3em;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  list-style: none;
+	  background: var(--background);
+	  background-size: contain;
 	}
 
 	li {
-		position: relative;
-		height: 100%;
+	  position: relative;
+	  height: 100%;
 	}
 
 	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
+	  --size: 6px;
+	  content: "";
+	  width: 0;
+	  height: 0;
+	  position: absolute;
+	  top: 0;
+	  left: calc(50% - var(--size));
+	  border: var(--size) solid transparent;
+	  border-top: var(--size) solid var(--accent-color);
 	}
 
 	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
+	  display: flex;
+	  height: 100%;
+	  align-items: center;
+	  padding: 0 1em;
+	  color: var(--heading-color);
+	  font-weight: 700;
+	  font-size: 0.8rem;
+	  text-transform: uppercase;
+	  letter-spacing: 0.1em;
+	  text-decoration: none;
+	  transition: color 0.2s linear;
 	}
 
 	a:hover {
-		color: var(--accent-color);
+	  color: var(--accent-color);
 	}
-</style>
+  </style>

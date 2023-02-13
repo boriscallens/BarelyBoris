@@ -19,21 +19,11 @@ export const authorization: Handle = async ({ event, resolve }) => {
         transformPageChunk: ({ html }) => html
     });
 }
-export const logEnv: Handle = async ({ event, resolve }) => {
-    console.log("AUTH0_CLIENT_ID", AUTH0_CLIENT_ID);
-    console.log("AUTH0_ISSUER_BASE_URL", AUTH0_ISSUER_BASE_URL);
-
-    // If the request is still here, just proceed as normally
-    return await resolve(event, {
-        transformPageChunk: ({ html }) => html
-    });
-}
 
 // First handle authentication, then authorization
 // Each function acts as a middleware, receiving the request handle
 // And returning a handle which gets passed to the next function
 export const handle: Handle = sequence(
-  logEnv,
   SvelteKitAuth({
     debug: dev,
     trustHost: true,

@@ -25,7 +25,7 @@ export const authorization: Handle = async ({ event, resolve }) => {
 // And returning a handle which gets passed to the next function
 export const handle: Handle = sequence(
   SvelteKitAuth({
-    debug: dev,
+    debug: true,
     trustHost: true,
     providers: [
       //@ts-expect-error issue https://github.com/nextauthjs/next-auth/issues/6174

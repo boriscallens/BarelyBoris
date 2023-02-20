@@ -4,14 +4,14 @@
 declare namespace App {
 	// interface Locals {}
 	interface PageData {
-		session: {
+		session?: {
 			user: {
-				id: string;
-				name: string;
-				email: string;
+				name: string | null;
+				email: string | null;
 				image: string | null;
-			}
-		} | undefined;
+			};
+			expires: ISODateString;
+		};
 	}
 	// interface Error {}
 	// interface Platform {}

@@ -27,6 +27,8 @@ jobs:
           envkey_AUTH0_CLIENT_ID: ${{ vars.AUTH0_CLIENT_ID }}
           envkey_AUTH0_CLIENT_SECRET: ${{ secrets.AUTH0_CLIENT_SECRET }}
           fail_on_empty: true
+      - name: Check creatd file
+        run: cat /github/workspace/.env      
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

@@ -12,7 +12,8 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
+			<li class:active={$page.url.pathname === '/'}><a href="/">Home</a></li>
+			<li class:active={$page.url.pathname === '/protected'}><a href="/protected">Protected</a></li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -20,7 +21,30 @@
 	</nav>
 
 	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+		<div class="signedInStatus">
+      <p class="nojs-show loaded">
+        {#if $page.data.session}
+          {#if $page.data.session.user?.image}
+            <span
+              style="background-image: url('{$page.data.session.user.image}')"
+              class="avatar"
+            />
+          {/if}
+          <span class="signedInText">
+            <small>Signed in as</small><br />
+            <strong
+              >{$page.data.session.user?.email ??
+                $page.data.session.user?.name}</strong
+            >
+          </span>
+          <a href="/auth/signout" class="button" data-sveltekit-preload-data="off">Sign out</a>
+        {:else}
+          <span class="notSignedInText">You are not signed in</span>
+          <a href="/auth/signin" class="buttonPrimary" data-sveltekit-preload-data="off">Sign in</a>
+        {/if}
+      </p>
+    </div>
+
 	</div>
 </header>
 

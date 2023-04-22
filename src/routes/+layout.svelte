@@ -1,7 +1,11 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
 	import Footer from '$lib/footer/Footer.svelte';
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
+
+	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
 <Header />

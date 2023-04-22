@@ -12,16 +12,15 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "^2.4.2",
 		"@sveltejs/kit": "next",
-		"svelte": "^3.44.0",
+		"svelte": "^3.55.0",
 		"svelte-check": "^3.0.3",
-		"svelte-preprocess": "^5.0.0",
 		"tslib": "^2.3.1",
-		"typescript": "^4.7.4"
+		"typescript": "^4.9.4"
 	},
 	"type": "module",
 	"dependencies": {
-		"@auth/core": "^0.7.0",
-		"@auth/sveltekit": "^0.3.1",
+		"@auth/core": "latest",
+		"@auth/sveltekit": "latest",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@vercel/analytics": "^1.0.0"
 	}

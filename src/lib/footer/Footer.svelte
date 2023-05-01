@@ -1,11 +1,8 @@
 <!-- a footer with links to my github profile, soundcloud profile, stackoverflow profile, linkedin profile -->
-<footer>
-	<a href="https://stackoverflow.com/users/11333/boris-callens">
+<footer class="mb-3 text-center">
+	<a class="chip" href="https://stackoverflow.com/users/11333/boris-callens">
 		Stackoverflow
-		<svg
-			width="1rem"
-			height="1rem"
-		 	viewBox="0 0 25 30">
+		<svg class="h-4 w-4" viewBox="0 0 25 30">
 			<path d="M21 27v-8h3v11H0V19h3v8h18Z" fill="#BCBBBB" />
 			<path
 				d="M17.1.2 15 1.8l7.9 10.6 2.1-1.6L17.1.2Zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2ZM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4Zm-1.8 6.8 13.56 1.96.17-2.38-13.26-2.55-.47 2.97ZM19 25H5v-3h14v3Z"
@@ -13,11 +10,9 @@
 			/>
 		</svg>
 	</a>
-	<a href="https://github.com/boriscallens">
+	<a class="chip" href="https://github.com/boriscallens">
 		Github
-		<svg
-		width="1rem"
-		height="1rem"
+		<svg class="h-4 w-4"
 			viewBox="0 0 256 250"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -32,11 +27,9 @@
 			</g>
 		</svg>
 	</a>
-	<a href="https://be.linkedin.com/in/boriscallens">
+	<a class="chip" href="https://be.linkedin.com/in/boriscallens">
 		Linked In
-		<svg
-		width="1rem"
-		height="1rem"
+		<svg class="h-4 w-4"
 			viewBox="0 0 256 256"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -51,11 +44,9 @@
 			</g>
 		</svg>
 	</a>
-	<a href="https://soundcloud.com/boriscallens">
+	<a class="chip" href="https://soundcloud.com/boriscallens">
 		Soundcloud
-		<svg
-			width="1rem"
-			height="1rem"
+		<svg class="h-4 w-4"
 			viewBox="0 0 256 145"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -301,14 +292,7 @@
 </footer>
 
 <style>
-	footer {
-		margin-bottom: 1rem;
-		border-bottom: 10px pink;
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-	}
-	footer a {
-		color: var(--text-color);
+	svg {
+		margin-left: 5px;
 	}
 </style>

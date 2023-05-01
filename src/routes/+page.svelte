@@ -2,17 +2,13 @@
 	<title>Home</title>
 </svelte:head>
 
-<section class=flex-cell>
-	<h1>Hi there! I'm Boris</h1>
-	<h2>Admittedly, only barely so.	</h2>
-
-	<p>I wanted a place to store my projects and experiments. This is that place</p>
+<section class="text-surface-700">
+	<div class="text-4xl">Hi there! I'm Boris</div>
+	<div class="text-lg mt-10">Admittedly, only barely so.</div>
+	<div class="mt-8 text-center">I wanted a place to store my projects and experiments. This is that place</div>
 </section>
 
-<style>
-	h1 {
-		margin-bottom: 0;
-	}
+<style type="sass">
 	section {
 		display: flex;
 		flex-direction: column;
@@ -20,9 +16,5 @@
 		align-items: center;
 		flex: 1;
 		align-self: stretch;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>

@@ -1,30 +1,33 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
-	import { inject } from '@vercel/analytics';
-	import Footer from '$lib/footer/Footer.svelte';
-	import Header from '$lib/header/Header.svelte';
-	import '../app.css';
+  import "@skeletonlabs/skeleton/themes/theme-skeleton.css";
+  import "@skeletonlabs/skeleton/styles/all.css";
+  import "../app.postcss";
 
-	inject({ mode: dev ? 'development' : 'production' });
+  import { dev } from "$app/environment";
+  import { inject } from "@vercel/analytics";
+  import Footer from "$lib/footer/Footer.svelte";
+  import Header from "$lib/header/Header.svelte";
+
+  inject({ mode: dev ? "development" : "production" });
 </script>
 
 <Header />
 
 <main>
-	<slot />
+  <slot />
 </main>
 
-<Footer/>
+<Footer />
 
 <style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 </style>

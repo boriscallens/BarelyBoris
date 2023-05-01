@@ -27,7 +27,6 @@
   "dependencies": {
     "@auth/core": "latest",
     "@auth/sveltekit": "latest",
-    "@fontsource/fira-mono": "^4.5.10",
     "@vercel/analytics": "^1.0.0"
   }
 }

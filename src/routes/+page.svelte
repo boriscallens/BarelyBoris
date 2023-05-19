@@ -1,5 +1,6 @@
 <svelte:head>
-	<title>Home</title>
+	<title>Barely Boris</title>
+	<meta name="description" content="The place where Boris puts his projects and experiments"/>
 </svelte:head>
 
 <section class="text-surface-700">

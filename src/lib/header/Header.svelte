@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { Avatar, Tab, TabGroup } from "@skeletonlabs/skeleton";
+  import { Avatar } from "@skeletonlabs/skeleton";
+  import Navigation from "./Navigation.svelte";
 
   let signedIn = $page.data.session;
   let avatarProps = {
@@ -15,15 +16,6 @@
         .map((n) => n[0])
         .join("") ?? "?",
   };
-
-  const anonymousNavItems = [
-		{ name: "Home", href: "/"}
-	];
-  const authenticatedNavItems = [
-    ...anonymousNavItems,
-    { name: "Protected", href: "/protected" },
-  ];
-  const navItems = signedIn ? authenticatedNavItems : anonymousNavItems;
 </script>
 
 <header class="flex h-14">
@@ -31,13 +23,7 @@
     <!-- TODO home with logo if I ever get around to making one -->
   </div>
 
-  <nav class="grow text-center">
-    <ul>
-			{#each navItems as navItem}
-				<li class:active={$page.url.pathname === navItem.href}><a href="{navItem.href}">{navItem.name}</a></li>
-			{/each}
-		</ul>
-  </nav>
+  <Navigation />
 
   <div class="flex-none w-18 p-1" data-sveltekit-preload-data="off">
     {#if !signedIn}

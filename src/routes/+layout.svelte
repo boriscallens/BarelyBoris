@@ -1,7 +1,8 @@
 <script lang="ts">
   import "@skeletonlabs/skeleton/themes/theme-skeleton.css";
-  import "@skeletonlabs/skeleton/styles/all.css";
+  import "@skeletonlabs/skeleton/styles/skeleton.css";
   import "../app.postcss";
+  import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
 
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";

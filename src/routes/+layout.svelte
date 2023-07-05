@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../app.postcss";
+  import "../app.css";
 
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";

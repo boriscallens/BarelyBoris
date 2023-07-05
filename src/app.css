@@ -1,4 +1,3 @@
-/* Write your global styles here, in PostCSS syntax */
 @font-face {
 	font-family: 'Fira Mono', monospace;
 	src: url('/fonts/FiraMono-Regular.ttf'), url('/fonts/FiraMono-Medium.ttf'), url('/fonts/FiraMono-Bold.ttf');

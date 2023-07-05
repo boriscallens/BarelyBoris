@@ -1,5 +1,5 @@
 import type { Provider } from "@auth/core/providers";
-import Credentials, { type CredentialsConfig } from "@auth/core/providers/credentials";
+import Credentials from "@auth/core/providers/credentials";
 import type { User } from "@auth/core/types";
 
 export default function FakeProvider(): Provider {

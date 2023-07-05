@@ -1,5 +1,5 @@
 <!-- a footer with links to my github profile, soundcloud profile, stackoverflow profile, linkedin profile -->
-<footer class="mb-3 text-center">
+<footer>
 	<a class="chip" href="https://stackoverflow.com/users/11333/boris-callens">
 		Stackoverflow
 		<svg class="h-4 w-4" viewBox="0 0 25 30">

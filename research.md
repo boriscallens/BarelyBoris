@@ -1,5 +1,10 @@
-https://learn.microsoft.com/en-gb/azure/static-web-apps/authentication-authorization
+Editable websites
+https://sveltethemes.dev/michael/editable-website
 
-npx swa start http://127.0.0.1:5173/ --run "npm run dev"
+[Building Your Own Design System with CSS Variables, talk by Scott Tolinski](https://www.youtube.com/watch?v=LwYZTKxj-do)
+  - https://typescale.com/
 
-https://www.aaron-powell.com/posts/2021-05-13-using-auth0-with-static-web-apps/
+[UI hacks for a beginner](https://www.youtube.com/watch?v=88XxC0_zs74)
+  - Letter spacing headings: between -1% to -2%
+  - Max text width (use breapoints from bootstrap or something)
+  - Header top should have more spacing (2x) then bottom (1x) to relate to that text

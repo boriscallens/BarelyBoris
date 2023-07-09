@@ -4,12 +4,16 @@
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
   import Footer from "$lib/footer/Footer.svelte";
-  import Header from "$lib/header/Header.svelte";
 
   inject({ mode: dev ? "development" : "production" });
 </script>
 
-<Header />
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+  </nav>
+</header>
 
 <main>
   <slot />
@@ -17,7 +21,16 @@
 
 <Footer />
 
-<style>
+<style type="css">
+  :global(html, body) {
+    height: 100%;
+    margin: 0;
+  }
+  :global(#svelte) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   main {
     flex: 1;
     display: flex;

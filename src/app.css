@@ -1,93 +1,255 @@
+/* montserrat-regular - latin */
 @font-face {
-	font-family: 'Fira Mono', monospace;
-	src: url('/fonts/FiraMono-Regular.ttf'), url('/fonts/FiraMono-Medium.ttf'), url('/fonts/FiraMono-Bold.ttf');
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/montserrat-v25-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* Colors */
+/* https://theme.numl.design/ */
 :root {
-  --theme-font-family-base: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --theme-font-family-heading: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --bg-color: rgba(255, 255, 255, 1);
+  --text-color: rgba(63, 44, 31, 1);
+  --text-soft-color: rgba(86, 71, 63, 1);
+  --text-strong-color: rgba(74, 74, 74, 1);
+  --subtle-color: rgba(254, 248, 246, 1);
+  --border-color: rgba(249, 226, 214, 1);
+  --shadow-color: rgba(224, 183, 157, 1);
+  --input-color: rgba(255, 255, 255, 1);
+  --outline-color: rgba(250, 178, 124, 1);
+  --mark-color: rgba(191, 114, 0, 0.08);
+  --special-color: rgba(191, 114, 0, 1);
+  --special-bg-color: rgba(196, 118, 0, 1);
+  --special-text-color: rgba(255, 255, 255, 1);
+  --special-shadow-color: rgba(120, 86, 62, 1);
+  --special-mark-color: rgba(255, 255, 255, 0.08);
+  --light-color: rgba(255, 241, 234, 1);
+  --dark-color: rgba(92, 65, 46, 1);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: rgba(32, 32, 32, 1);
+    --text-color: rgba(231, 221, 216, 1);
+    --text-soft-color: rgba(198, 185, 179, 1);
+    --text-strong-color: rgba(187, 187, 187, 1);
+    --subtle-color: rgba(43, 35, 30, 1);
+    --border-color: rgba(62, 45, 32, 1);
+    --shadow-color: rgba(0, 0, 0, 1);
+    --input-color: rgba(28, 28, 28, 1);
+    --outline-color: rgba(217, 141, 70, 1);
+    --mark-color: rgba(196, 122, 40, 0.08);
+    --special-color: rgba(196, 122, 40, 1);
+    --special-bg-color: rgba(141, 86, 26, 1);
+    --special-text-color: rgba(231, 221, 216, 1);
+    --special-shadow-color: rgba(41, 27, 17, 1);
+    --special-mark-color: rgba(231, 221, 216, 0.08);
+    --light-color: rgba(251, 202, 171, 1);
+    --dark-color: rgba(69, 48, 33, 1);
+  }
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --bg-color: rgba(255, 255, 255, 1);
+    --text-color: rgba(43, 29, 19, 1);
+    --text-soft-color: rgba(38, 31, 26, 1);
+    --text-strong-color: rgba(74, 74, 74, 1);
+    --subtle-color: rgba(254, 248, 246, 1);
+    --border-color: rgba(208, 175, 155, 1);
+    --shadow-color: rgba(186, 149, 125, 1);
+    --input-color: rgba(255, 255, 255, 1);
+    --outline-color: rgba(248, 156, 54, 1);
+    --mark-color: rgba(148, 88, 0, 0.16);
+    --special-color: rgba(148, 88, 0, 1);
+    --special-bg-color: rgba(153, 90, 0, 1);
+    --special-text-color: rgba(255, 255, 255, 1);
+    --special-shadow-color: rgba(51, 35, 23, 1);
+    --special-mark-color: rgba(255, 255, 255, 0.16);
+    --light-color: rgba(255, 241, 234, 1);
+    --dark-color: rgba(92, 65, 46, 1);
+  }
+}
+
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --bg-color: rgba(32, 32, 32, 1);
+    --text-color: rgba(243, 238, 236, 1);
+    --text-soft-color: rgba(241, 239, 238, 1);
+    --text-strong-color: rgba(187, 187, 187, 1);
+    --subtle-color: rgba(43, 35, 30, 1);
+    --border-color: rgba(93, 78, 69, 1);
+    --shadow-color: rgba(0, 0, 0, 1);
+    --input-color: rgba(28, 28, 28, 1);
+    --outline-color: rgba(213, 138, 69, 1);
+    --mark-color: rgba(245, 153, 53, 0.16);
+    --special-color: rgba(245, 153, 53, 1);
+    --special-bg-color: rgba(114, 69, 19, 1);
+    --special-text-color: rgba(243, 238, 236, 1);
+    --special-shadow-color: rgba(0, 0, 0, 1);
+    --special-mark-color: rgba(243, 238, 236, 0.16);
+    --light-color: rgba(253, 222, 205, 1);
+    --dark-color: rgba(69, 48, 33, 1);
+  }
+}
+
+/*** Text ***/
+/* Based on https://typescale.com/ */
+/* Breakpoints based on https://getbootstrap.com/docs/5.1/layout/breakpoints/ */
+
+/* Small devices (landscape phones, 576px and up) and also default */
+/* Major Second */
 :root {
-  --font-mono: "Fira Mono", monospace;
-  --pure-white: #ffffff;
-  --primary-color: #f3b057;
-  --secondary-color: #f3b057;
-  --tertiary-color: #f3b057;
-  --accent-color: #ff3e00;
-  --heading-color: rgba(0, 0, 0, 0.7);
-  --text-color: #444444;
-  --background-without-opacity: rgba(255, 255, 255, 0.7);
-  --column-width: 42rem;
-  --column-margin-top: 4rem;
+  --font-family: 'Montserrat', sans-serif;
+  --font-weight: 400;
+  --font-size-base: 1rem;
+  --font-size-small: 0.889rem;
+
+  --font-size-h1: 1.802rem;
+  --font-size-h2: 1.602rem;
+  --font-size-h3: 1.424rem;
+  --font-size-h4: 1.266rem;
+  --font-size-h5: 1.125rem;
+
+  --line-height-base: 1.75rem;
+  --line-height-heading: 1.3rem;
+  --line-height-small: 1.25rem;
+
+  --margin-top-heading: 3rem;
+  --margin-bottom-heading: 1.38rem;
+  --margin-bottom: 1rem;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --font-size-h1: 1.802rem;
+    --font-size-h2: 1.602rem;
+    --font-size-h3: 1.424rem;
+    --font-size-h4: 1.266rem;
+    --font-size-h5: 1.125rem;
+
+    --font-size-small: 0.889rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+/* Major Third */
+@media (min-width: 768px) {
+  :root {
+    --font-size-h1: 3.052rem;
+    --font-size-h2: 2.441rem;
+    --font-size-h3: 1.953rem;
+    --font-size-h4: 1.563rem;
+    --font-size-h5: 1.25rem;
+
+    --font-size-small: 0.8rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+/* Perfect Fourth */
+@media (min-width: 992px) {
+  :root {
+    --font-size-h1: 4.209rem;
+    --font-size-h2: 3.157rem;
+    --font-size-h3: 2.369rem;
+    --font-size-h4: 1.777rem;
+    --font-size-h5: 1.333em;
+
+    --font-size-small: 0.75rem;
+  }
+}
+
+html {
+  font-size: 100%;
 }
 
 body {
-  min-height: 100vh;
-  margin: 0;
-  background-color: var(--pure-white);
+  background: var(--bg-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
 }
 
-#svelte {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+p {
+  margin-bottom: var(--margin-bottom);
 }
 
 h1,
 h2,
-p {
-  font-weight: 400;
-  color: var(--heading-color);
-}
-
-p {
-  line-height: 1.5;
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+h3,
+h4,
+h5 {
+  margin: var(--margin-top-heading) 0 var(--margin-bottom-heading);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height-heading);
 }
 
 h1 {
-  font-size: 2rem;
-  text-align: center;
+  margin-top: 0;
+  font-size: var(--font-size-h1);
 }
 
 h2 {
-  font-size: 1rem;
+  font-size: var(--font-size-h2);
 }
 
-pre {
-  font-size: 16px;
-  font-family: var(--font-mono);
-  background-color: rgba(255, 255, 255, 0.45);
-  border-radius: 3px;
-  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-  padding: 0.5em;
-  overflow-x: auto;
-  color: var(--text-color);
+h3 {
+  font-size: var(--font-size-h3);
 }
 
-input,
-button {
-  font-size: inherit;
-  font-family: inherit;
+h4 {
+  font-size: var(--font-size-h4);
 }
 
-button:focus:not(:focus-visible) {
-  outline: none;
+h5 {
+  font-size: var(--font-size-h5);
 }
 
-@media (min-width: 720px) {
-  h1 {
-    font-size: 2.4rem;
+small,
+.text_small {
+  font-size: var(--font-size-small);
+}
+
+/* Layout dimentions */
+:root {
+  --padding-between: 1rem;
+  --element-height: 3rem;
+  --border-radius: 10px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+/* Major Second */
+@media (min-width: 576px) {
+  :root {
+    --padding-x: 1rem;
   }
+}
+
+/* Medium devices (tablets, 768px and up) */
+/* Major Third */
+@media (min-width: 768px) {
+  :root {
+    --padding-between: 1rem;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+/* Perfect Fourth */
+@media (min-width: 992px) {
+  :root {
+    --padding-between: 1rem;
+  }
+}
+
+/* Animations */
+/* Mostly based on https://uxdesign.cc/the-ultimate-guide-to-proper-use-of-animation-in-ux-10bd98614fa9 */
+:root {
+  --transition-duration: 150ms;
 }

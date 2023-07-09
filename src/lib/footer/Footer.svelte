@@ -1,8 +1,7 @@
-<!-- a footer with links to my github profile, soundcloud profile, stackoverflow profile, linkedin profile -->
-<footer class="mb-3 text-center">
+<footer>
 	<a class="chip" href="https://stackoverflow.com/users/11333/boris-callens">
 		Stackoverflow
-		<svg class="h-4 w-4" viewBox="0 0 25 30">
+		<svg viewBox="0 0 25 30">
 			<path d="M21 27v-8h3v11H0V19h3v8h18Z" fill="#BCBBBB" />
 			<path
 				d="M17.1.2 15 1.8l7.9 10.6 2.1-1.6L17.1.2Zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2ZM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4Zm-1.8 6.8 13.56 1.96.17-2.38-13.26-2.55-.47 2.97ZM19 25H5v-3h14v3Z"
@@ -10,10 +9,9 @@
 			/>
 		</svg>
 	</a>
-	<a class="chip" href="https://github.com/boriscallens">
+	<a class="chip github" href="https://github.com/boriscallens">
 		Github
-		<svg class="h-4 w-4"
-			viewBox="0 0 256 250"
+		<svg viewBox="0 0 256 250"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -29,7 +27,7 @@
 	</a>
 	<a class="chip" href="https://be.linkedin.com/in/boriscallens">
 		Linked In
-		<svg class="h-4 w-4"
+		<svg 
 			viewBox="0 0 256 256"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +44,7 @@
 	</a>
 	<a class="chip" href="https://soundcloud.com/boriscallens">
 		Soundcloud
-		<svg class="h-4 w-4"
+		<svg 
 			viewBox="0 0 256 145"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -292,7 +290,32 @@
 </footer>
 
 <style>
+	footer {
+		display: flex;
+		flex-wrap: wrap;
+		font-size: var(--font-size-small);
+
+		justify-content: center;
+		column-gap: var(--space-between);
+		align-items: center;
+		padding-bottom: var(--space-between);
+	}
 	svg {
 		margin-left: 5px;
+		height: var(--line-height-small);
+		vertical-align: middle;
+	}
+	a {
+		white-space: nowrap;
+		padding: 0px var(--space-between);
+	}
+	a:hover {
+		border-radius: var(--border-radius);
+		transition: border-radius calc(var(--transition-duration)+150ms) ease-in;
+	}
+	@media (prefers-color-scheme: dark) { 
+		.github > svg > g > path {
+			fill: var(--light-color);
+		}
 	}
 </style>

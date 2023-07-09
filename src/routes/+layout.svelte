@@ -1,13 +1,10 @@
 <script lang="ts">
-  import "@skeletonlabs/skeleton/themes/theme-skeleton.css";
-  import "@skeletonlabs/skeleton/styles/skeleton.css";
-  import "../app.postcss";
-  import '@skeletonlabs/skeleton/themes/theme-gold-nouveau.css';
+  import "../app.css";
 
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
   import Footer from "$lib/footer/Footer.svelte";
-  import Header from "$lib/header/Header.svelte";
+    import Header from "$lib/header/Header.svelte";
 
   inject({ mode: dev ? "development" : "production" });
 </script>
@@ -20,7 +17,16 @@
 
 <Footer />
 
-<style>
+<style type="css">
+  :global(html, body) {
+    height: 100%;
+    margin: 0;
+  }
+  :global(#svelte) {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
   main {
     flex: 1;
     display: flex;

@@ -3,13 +3,14 @@
 	<meta name="description" content="The place where Boris puts his projects and experiments"/>
 </svelte:head>
 
-<section class="text-surface-700">
-	<div class="text-4xl">Hi there! I'm Boris</div>
-	<div class="text-lg mt-10">Admittedly, only barely so.</div>
-	<div class="mt-8 text-center">I wanted a place to store my projects and experiments. This is that place</div>
+<section>
+	<h1>Hi there! I'm Boris</h1>
+	<div>Admittedly, only barely so.</div>
+	<div>I wanted a place to store my projects and experiments. This is that place</div>
 </section>
 
-<style type="sass">
+<style type="css">
+	h1 { font-size: var(--font-size-h2); /*Yeah I know*/}
 	section {
 		display: flex;
 		flex-direction: column;
@@ -17,5 +18,8 @@
 		align-items: center;
 		flex: 1;
 		align-self: stretch;
+	}
+	div {
+		margin: 1em;
 	}
 </style>

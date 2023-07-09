@@ -1,0 +1,77 @@
+@import url('styling/colors.css');
+@import url('styling/text.css');
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background: var(--bg-color);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+}
+
+p {
+  margin-bottom: var(--margin-bottom);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: var(--margin-top-heading) 0 var(--margin-bottom-heading);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height-heading);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+a {
+  color: var(--special-color);
+}
+
+a:hover {
+  background-color: var(--subtle-color);
+  transition: background-color var(--transition-duration) ease-in;
+}
+
+small,
+.text_small {
+  font-size: var(--font-size-small);
+}
+
+/* Layout dimentions */
+:root {
+  --space-between: 1rem;
+  --element-height: 3rem;
+  --border-radius: 8px;
+}
+
+/* Animations */
+/* Mostly based on https://uxdesign.cc/the-ultimate-guide-to-proper-use-of-animation-in-ux-10bd98614fa9 */
+:root {
+  --transition-duration: 125ms;
+}

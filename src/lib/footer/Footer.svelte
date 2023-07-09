@@ -296,9 +296,9 @@
 		font-size: var(--font-size-small);
 
 		justify-content: center;
-		column-gap: var(--padding-between);
+		column-gap: var(--space-between);
 		align-items: center;
-		padding-bottom: var(--padding-between);
+		padding-bottom: var(--space-between);
 	}
 	svg {
 		margin-left: 5px;
@@ -306,14 +306,12 @@
 		vertical-align: middle;
 	}
 	a {
-		color: var(--special-color);
 		white-space: nowrap;
-		border-radius: var(--border-radius);
-		padding: 0px var(--padding-between);
+		padding: 0px var(--space-between);
 	}
 	a:hover {
-		background-color: var(--subtle-color);
-		transition: all var(--transition-duration) ease-in;
+		border-radius: var(--border-radius);
+		transition: border-radius calc(var(--transition-duration)+150ms) ease-in;
 	}
 	@media (prefers-color-scheme: dark) { 
 		.github > svg > g > path {

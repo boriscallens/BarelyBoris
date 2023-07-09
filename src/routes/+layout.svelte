@@ -4,16 +4,12 @@
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
   import Footer from "$lib/footer/Footer.svelte";
+    import Header from "$lib/header/Header.svelte";
 
   inject({ mode: dev ? "development" : "production" });
 </script>
 
-<header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-  </nav>
-</header>
+<Header />
 
 <main>
   <slot />

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
-    import Navigation from "./Navigation.svelte";
-  // let signedIn = $page.data.session;
+  import Navigation from "./Navigation.svelte";
+  let signedIn = $page.data.session;
 </script>
 
 <header>
@@ -9,17 +9,13 @@
 
   <Navigation />
 
-  <div id="avatar">avatar!</div>
-
-  <!-- <div data-sveltekit-preload-data="off">
+  <div data-sveltekit-preload-data="off">
     {#if !signedIn}
       <a href="/auth/signin" class="buttonPrimary">Sign in</a>
     {:else}
-      <a href="/auth/signout" title="sign out">
-        avatar!
-      </a>
+      <a href="/auth/signout" title="sign out">Sign out</a>
     {/if}
-  </div> -->
+  </div>
 </header>
 
 <style type="css">
@@ -28,6 +24,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    column-gap: var(--space-between);   
+    column-gap: var(--space-between);
   }
 </style>

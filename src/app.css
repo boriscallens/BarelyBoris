@@ -4,6 +4,7 @@
 
 @import '@fontsource/manrope';
 @import '@fontsource/jetbrains-mono';
+@import '@fontsource/inconsolata/900.css';
 
 
 /* Color Names */
@@ -30,7 +31,7 @@
   --font-mono: 'JetBrains Mono', monospace;
 
   /* light */
-  --brand-light: var(--orange-9);
+  --brand-light: var(--orange-8);
   --dark-accent-light: var(--night-shadz-0);
   --light-accent-light: var(--regent-gray-0);
   --text-1-light: var(--thunder-0);

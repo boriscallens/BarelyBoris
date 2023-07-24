@@ -2,39 +2,53 @@
   import "../app.css";
 
   import { dev } from "$app/environment";
-  import { inject } from "@vercel/analytics";
-  import Footer from "$lib/footer/Footer.svelte";
-    import Header from "$lib/header/Header.svelte";
+  import { inject as analyticsConfig } from "@vercel/analytics";
+  import Navigation from "$lib/header/Navigation.svelte";
+  import Profile from "$lib/auth/Profile.svelte";
 
-  inject({ mode: dev ? "development" : "production" });
+  analyticsConfig({ mode: dev ? "development" : "production" });
 </script>
 
-<Header />
-
-<main>
-  <slot />
-</main>
-
-<Footer />
+<header>
+  <img src="/barely-a-logo-2.png" alt="Barely a logo" />
+</header>
+<Navigation />
+<div id="signIn"><Profile /></div>
+<main><slot /></main>
+<footer>footer</footer>
 
 <style type="css">
-  :global(html, body) {
-    height: 100%;
-    margin: 0;
+  :global(body) {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: var(--size-10) auto var(--size-10);
+    grid-template-areas:
+      "logo nav signIn"
+      "main main main"
+      "footer footer footer";
+    column-gap: var(--size-2);
   }
-  :global(#svelte) {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+
+  header {
+    grid-area: logo;
   }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
   main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    grid-area: main;
+    width: min(100% - 2rem, 50rem);
+    margin-inline: auto;
+  }
+
+  #signIn {
+    grid-area: signIn;
+    padding: var(--size-fluid-1);
+  }
+
+  footer {
+    grid-area: footer;
   }
 </style>

@@ -1,13 +1,14 @@
 <script lang="ts">
   import { page } from "$app/stores";
+  import { Home, FileLock } from 'lucide-svelte';
 
   const anonymousNavItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/", icon: Home },
     // { label: "Fashionably Late", href: "/fashionablylate" },
   ];
   const authenticatedNavItems = [
     ...anonymousNavItems,
-    { label: "Protected", href: "/protected" },
+    { label: "Protected", href: "/protected", icon: FileLock },
   ];
   const navItems = $page.data.session
     ? authenticatedNavItems
@@ -16,30 +17,30 @@
 
 <nav>
   {#each navItems as navItem}
-    <a href={navItem.href} aria-current={$page.url.pathname === navItem.href}
-      >{navItem.label}</a
-    >
+    <a href={navItem.href} aria-current={$page.url.pathname === navItem.href}>
+      <svelte:component this={navItem.icon} />
+      {navItem.label}
+    </a>
   {/each}
 </nav>
 
 <style type="css">
   nav {
+    grid-area: nav;
     display: flex;
-    font-size: var(--font-size-h5);
-    height: var(--element-height);
+    justify-content: space-around;
   }
-
   a {
+    display: flex;
+    align-items: center;
+    column-gap: var(--size-2);
+    color: var(--text-2);
     text-decoration: none;
-    line-height: var(--element-height);
-    padding: 0px var(--space-between);
-    color: var(--text-color);
   }
-  a:hover {
-    border-bottom: 2px solid var(--border-color);
-  }
-  [aria-current="true"] {
-    border-bottom: 3px solid var(--border-color);
-    color: var(--text-color);
+  a[aria-current='true'] {
+    color: var(--brand);
+    border-bottom: var(--size-0);
+    border-bottom-style: solid;
+    border-bottom-color: var(--brand);
   }
 </style>

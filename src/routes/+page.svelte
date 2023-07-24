@@ -10,16 +10,5 @@
 </section>
 
 <style type="css">
-	h1 { font-size: var(--font-size-h2); /*Yeah I know*/}
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-		align-self: stretch;
-	}
-	div {
-		margin: 1em;
-	}
+	
 </style>

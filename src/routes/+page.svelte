@@ -12,60 +12,44 @@
 </section>
 
 <style type="css">
-	section {
+	section{
 		height: 100%;
 		display: grid;
-		
-		align-content: center;
-
-		font-size: 20rem;
-        grid-template-columns: 2ch auto;
-		column-gap: var(--size-3);
+		grid-template-columns: min-content auto;
 		grid-template-areas:
 			"barely boris"
 			"barely tagline"
-			"barely description";
-    }
+			"barely description";	
+		align-content: center;
+	}
 	h1 {
 		grid-area: barely;
-		color: var(--text-inverse-1);
-		background-color:var(--brand);
-		
-		height: 100%;
 		word-break: break-all;
+		width: 2ch;
+		padding-left: 1rem;
+
+		color: var(--text-inverse-1);	
+
 		text-transform: uppercase;
-		
 		font-weight: 900;
 		font-family: 'Inconsolata', var(--font-mono), monospace;
-		font-size: 27rem;
+		font-size: 45vmin;
 		line-height: 0.625em;
 		letter-spacing: -0.07em;
 	}
 	h2 {
 		grid-area: boris;
-		font-size: 8rem;
+		font-size: var(--font-size-fluid-3);
 		color: var(--text-2);
 		font-family: 'Inconsolata', monospace;
 		align-self: end;
 	}
 	.tagline{
 		grid-area: tagline;
-		font-size: var(--font-size-fluid-3);
+		font-size: var(--font-size-fluid-2);
 	}
 	.description{
 		grid-area: description;
-		font-size: var(--font-size-fluid-3);
-	}
-
-	/* h1 {
-		height: 100%;
-		background-color: orange;
-		text-transform: uppercase;
-		max-width: 2.2ch;
-		word-wrap: break-word;
-
-		font-size: 20vh;
-		line-height: 0.8em;
-		font-family: var(--font-mono);
-	} */
+		font-size: var(--font-size-fluid-1);
+	} 
 </style>

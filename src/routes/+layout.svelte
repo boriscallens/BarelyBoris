@@ -20,13 +20,12 @@
 <style type="css">
   :global(body) {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    height: 100%;
     grid-template-rows: var(--size-10) auto var(--size-10);
     grid-template-areas:
       "logo nav signIn"
       "main main main"
       "footer footer footer";
-    column-gap: var(--size-2);
   }
 
   header {
@@ -39,8 +38,6 @@
 
   main {
     grid-area: main;
-    width: min(100% - 2rem, 50rem);
-    margin-inline: auto;
   }
 
   #signIn {

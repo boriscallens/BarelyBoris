@@ -6,6 +6,7 @@
   import Navigation from "$lib/header/Navigation.svelte";
   import Profile from "$lib/auth/Profile.svelte";
   import Logo from "$lib/Logo.svelte";
+  import Footer from "$lib/footer/Footer.svelte";
 
   analyticsConfig({ mode: dev ? "development" : "production" });
 </script>
@@ -16,7 +17,9 @@
 <Navigation />
 <div id="signIn"><Profile /></div>
 <main><slot /></main>
-<footer>footer</footer>
+<footer>
+  <Footer />
+</footer>
 
 <style type="css">
   :global(body) {
@@ -31,9 +34,9 @@
   }
 
   header {
-    grid-area: logo;  
+    grid-area: logo;
     padding-left: var(--size-1);
-    padding-top:var(--size-1);
+    padding-top: var(--size-1);
   }
 
   main {

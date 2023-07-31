@@ -1,4 +1,4 @@
-<footer>
+<div>
 	<a class="chip" href="https://stackoverflow.com/users/11333/boris-callens">
 		Stackoverflow
 		<svg viewBox="0 0 25 30">
@@ -11,7 +11,8 @@
 	</a>
 	<a class="chip github" href="https://github.com/boriscallens">
 		Github
-		<svg viewBox="0 0 256 250"
+		<svg
+			viewBox="0 0 256 250"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
 			xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,7 +28,7 @@
 	</a>
 	<a class="chip" href="https://be.linkedin.com/in/boriscallens">
 		Linked In
-		<svg 
+		<svg
 			viewBox="0 0 256 256"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +45,7 @@
 	</a>
 	<a class="chip" href="https://soundcloud.com/boriscallens">
 		Soundcloud
-		<svg 
+		<svg
 			viewBox="0 0 256 145"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
@@ -287,35 +288,37 @@
 			</g>
 		</svg>
 	</a>
-</footer>
+</div>
 
 <style>
-	footer {
+	div {
+		height: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		font-size: var(--font-size-small);
-
+		align-content: center;
 		justify-content: center;
-		column-gap: var(--space-between);
-		align-items: center;
-		padding-bottom: var(--space-between);
+		gap: var(--size-3);
+		font-size: var(--font-size-1);
 	}
 	svg {
-		margin-left: 5px;
-		height: var(--line-height-small);
-		vertical-align: middle;
+		height: var(--font-size-1);
+		width: var(--font-size-1);
 	}
 	a {
 		white-space: nowrap;
-		padding: 0px var(--space-between);
+		display: flex;
+		gap: var(--size-1);
+		align-items: center;
+		margin: 0;
+		padding: 0;
 	}
 	a:hover {
 		border-radius: var(--border-radius);
 		transition: border-radius calc(var(--transition-duration)+150ms) ease-in;
 	}
-	@media (prefers-color-scheme: dark) { 
+	@media (prefers-color-scheme: dark) {
 		.github > svg > g > path {
-			fill: var(--light-color);
+			fill: var(--text-1);
 		}
 	}
 </style>

@@ -32,8 +32,8 @@
 
   header {
     grid-area: logo;  
-    padding-left: 3px;
-    padding-top:3px;
+    padding-left: var(--size-1);
+    padding-top:var(--size-1);
   }
 
   main {

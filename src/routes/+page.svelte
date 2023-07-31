@@ -26,7 +26,7 @@
 		grid-area: barely;
 		word-break: break-all;
 		width: 2ch;
-		padding-left: 1rem;
+		padding-left: var(--size-1);
 
 		color: var(--text-inverse-1);	
 

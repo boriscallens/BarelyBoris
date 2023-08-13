@@ -4,22 +4,52 @@
 </svelte:head>
 
 <section>
-	<h1>Hi there! I'm Boris</h1>
-	<div>Admittedly, only barely so.</div>
-	<div>I wanted a place to store my projects and experiments. This is that place</div>
+	<h1>Barely</h1>
+	<h2>Boris</h2>
+
+	<div class="tagline">Admittedly, only barely so.</div>
+	<div class="description">I wanted a place to store my projects and experiments. This is that place</div>
 </section>
 
 <style type="css">
-	h1 { font-size: var(--font-size-h2); /*Yeah I know*/}
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-		align-self: stretch;
+	section{
+		height: 100%;
+		display: grid;
+		grid-template-columns: min-content auto;
+		grid-template-areas:
+			"barely boris"
+			"barely tagline"
+			"barely description";	
+		align-content: center;
 	}
-	div {
-		margin: 1em;
+	h1 {
+		grid-area: barely;
+		word-break: break-all;
+		width: 2ch;
+		padding-left: var(--size-1);
+
+		color: var(--brand);	
+
+		text-transform: uppercase;
+		font-weight: 900;
+		font-family: 'Inconsolata', var(--font-mono), monospace;
+		font-size: 45vmin;
+		line-height: 0.625em;
+		letter-spacing: -0.07em;
 	}
+	h2 {
+		grid-area: boris;
+		font-size: var(--font-size-fluid-3);
+		color: var(--text-2);
+		font-family: 'Inconsolata', monospace;
+		align-self: end;
+	}
+	.tagline{
+		grid-area: tagline;
+		font-size: var(--font-size-fluid-2);
+	}
+	.description{
+		grid-area: description;
+		font-size: var(--font-size-fluid-1);
+	} 
 </style>

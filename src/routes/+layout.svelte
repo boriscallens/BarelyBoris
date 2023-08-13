@@ -2,39 +2,53 @@
   import "../app.css";
 
   import { dev } from "$app/environment";
-  import { inject } from "@vercel/analytics";
+  import { inject as analyticsConfig } from "@vercel/analytics";
+  import Navigation from "$lib/header/Navigation.svelte";
+  import Profile from "$lib/auth/Profile.svelte";
+  import Logo from "$lib/Logo.svelte";
   import Footer from "$lib/footer/Footer.svelte";
-    import Header from "$lib/header/Header.svelte";
 
-  inject({ mode: dev ? "development" : "production" });
+  analyticsConfig({ mode: dev ? "development" : "production" });
 </script>
 
-<Header />
-
-<main>
-  <slot />
-</main>
-
-<Footer />
+<header>
+  <Logo />
+</header>
+<Navigation />
+<div id="signIn"><Profile /></div>
+<main><slot /></main>
+<footer>
+  <Footer />
+</footer>
 
 <style type="css">
-  :global(html, body) {
+  :global(body) {
+    display: grid;
     height: 100%;
-    margin: 0;
+    grid-template-rows: var(--size-10) auto var(--size-10);
+    grid-template-columns: auto auto var(--size-11);
+    grid-template-areas:
+      "logo nav signIn"
+      "main main main"
+      "footer footer footer";
   }
-  :global(#svelte) {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+
+  header {
+    grid-area: logo;
+    padding-left: var(--size-1);
+    padding-top: var(--size-1);
   }
+
   main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    grid-area: main;
+  }
+
+  #signIn {
+    grid-area: signIn;
+    padding: var(--size-fluid-1);
+  }
+
+  footer {
+    grid-area: footer;
   }
 </style>

@@ -47,7 +47,7 @@
   /* dark */
   --brand-dark: var(--orange-8);
   --dark-accent-dark: var(--night-shadz-0);
-  --light-accent-light: var(--regent-gray-0);
+  --light-accent-dark: var(--regent-gray-0);
   --text-1-dark: var(--saltpan-0);
   --text-2-dark: var(--saltpan-2);
   --text-inverse-1-dark: var(--thunder-3);
@@ -99,11 +99,11 @@
 .btn {
   background-color: var(--surface-1);
   border-radius: var(--radius-2);
-  border: var(--border-size-1) solid var(--light-accent);
+  border: var(--border-size-1) solid var(--dark-accent);
   color: var(--text-1);
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: var(--shadow-2);
+  box-shadow: var(--shadow-2);  
 }
 
 .btn.brand {

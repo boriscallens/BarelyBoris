@@ -6,7 +6,7 @@
 
 <div data-sveltekit-preload-data="off">
     {#if !signedIn}
-        <a href="/auth/signin" class="btn brand"><LogIn />sign in</a>
+        <a href="/auth/signin" class="btn"><LogIn />sign in</a>
     {:else}
         <a href="/auth/signout" title="log out" class="btn"><LogOut />log out</a>
     {/if}

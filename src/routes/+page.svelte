@@ -28,7 +28,7 @@
 		width: 2ch;
 		padding-left: var(--size-1);
 
-		color: var(--text-inverse-1);	
+		color: var(--brand);	
 
 		text-transform: uppercase;
 		font-weight: 900;

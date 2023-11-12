@@ -19,10 +19,4 @@
         justify-content: flex-end;
         align-items: center;
     }
-    a {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 0.5ch;
-    }
 </style>

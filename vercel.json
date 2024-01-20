@@ -1,0 +1,11 @@
+{
+    "routes": [
+        {
+            "src": "/ontbijt",
+            "status": 307,
+            "headers": {
+                "Location": "https://picci.app/01hmkhen2x2jp3v10v9aa372yn"
+            }
+        }
+    ]
+}

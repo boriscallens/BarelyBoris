@@ -6,5 +6,4 @@ import FakeProvider from "$lib/auth/FakeCredentials";
 let providers = [BarelyAuth0()];
 if(dev) providers = [BarelyAuth0(), FakeProvider()];
 
-//@ts-expect-error issue https://github.com/nextauthjs/next-auth/issues/6174
-export const handle = SvelteKitAuth({providers});
+export const { handle } = SvelteKitAuth({providers});

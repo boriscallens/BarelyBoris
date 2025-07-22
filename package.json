@@ -1,6 +1,6 @@
 {
   "name": "barelyboris",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -10,23 +10,24 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^5.2.0",
-    "@sveltejs/kit": "latest",
-    "svelte": "^4.0.0",
-    "svelte-check": "^3.4.3",
-    "svelte-preprocess": "^5.0.3",
-    "tslib": "^2.3.1",
-    "typescript": "^5.0.0"
+    "@sveltejs/adapter-vercel": "^5.8.0",
+    "@sveltejs/kit": "^2.25.1",
+    "svelte": "^5.36.13",
+    "svelte-check": "^4.3.0",
+    "svelte-preprocess": "^6.0.3",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
   },
   "type": "module",
   "dependencies": {
-    "@auth/core": "latest",
-    "@auth/sveltekit": "latest",
-    "@fontsource/inconsolata": "^5.0.5",
-    "@fontsource/jetbrains-mono": "^5.0.5",
-    "@fontsource/manrope": "^5.0.5",
-    "@vercel/analytics": "^1.0.0",
-    "lucide-svelte": "*",
-    "open-props": "^1.5.10"
+    "@auth/core": "^0.40.0",
+    "@auth/sveltekit": "^1.10.0",
+    "@fontsource/inconsolata": "^5.2.6",
+    "@fontsource/jetbrains-mono": "^5.2.6",
+    "@fontsource/manrope": "^5.2.6",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
+    "lucide-svelte": "^0.525.0",
+    "open-props": "^1.7.16"
   }
 }

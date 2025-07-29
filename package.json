@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "20.x"
+  },
   "name": "barelyboris",
   "version": "0.1.0",
   "private": true,
@@ -10,24 +13,24 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^5.8.0",
-    "@sveltejs/kit": "^2.25.1",
-    "svelte": "^5.36.13",
+    "@sveltejs/adapter-vercel": "^5.8.1",
+    "@sveltejs/kit": "^2.26.1",
+    "@sveltejs/vite-plugin-svelte": "^6.1.0",
+    "svelte": "^5.37.1",
     "svelte-check": "^4.3.0",
-    "svelte-preprocess": "^6.0.3",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite": "^7.0.6",
+    "vite-plugin-devtools-json": "^0.4.1"
   },
   "type": "module",
   "dependencies": {
-    "@auth/core": "^0.40.0",
-    "@auth/sveltekit": "^1.10.0",
+    "@auth/sveltekit": "latest",
     "@fontsource/inconsolata": "^5.2.6",
     "@fontsource/jetbrains-mono": "^5.2.6",
     "@fontsource/manrope": "^5.2.6",
     "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
-    "lucide-svelte": "^0.525.0",
-    "open-props": "^1.7.16"
+    "open-props": "^1.7.16",
+    "@lucide/svelte": "^0.533.0"
   }
 }

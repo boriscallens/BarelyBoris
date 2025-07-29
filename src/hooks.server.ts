@@ -10,5 +10,5 @@ if(dev) providers = [BarelyAuth0(), FakeProvider()];
 
 export const { handle } = SvelteKitAuth({
   providers,
-  trustHost: !dev && AUTH_TRUST_HOST === 'true'
+  trustHost: dev || AUTH_TRUST_HOST === 'true'
 });

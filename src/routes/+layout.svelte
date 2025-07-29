@@ -1,6 +1,8 @@
 <script lang="ts">
   import "../app.css";
 
+  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+
   import { dev } from "$app/environment";
   import { inject as analyticsConfig } from "@vercel/analytics";
   import Navigation from "$lib/header/Navigation.svelte";
@@ -8,6 +10,7 @@
   import Logo from "$lib/Logo.svelte";
   import Footer from "$lib/footer/Footer.svelte";
 
+  injectSpeedInsights();
   analyticsConfig({ mode: dev ? "development" : "production" });
 </script>
 

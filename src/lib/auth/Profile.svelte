@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { LogIn, LogOut } from "lucide-svelte";
+    import { LogIn, LogOut } from "@lucide/svelte";
     let signedIn = $page.data.session;
 </script>
 

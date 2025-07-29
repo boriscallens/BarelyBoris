@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import { Home, FileLock } from "lucide-svelte";
+  import { Home, FileLock } from "@lucide/svelte";
 
   const anonymousNavItems = [
     { label: "Home", href: "/", icon: Home },

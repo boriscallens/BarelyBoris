@@ -13,7 +13,6 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@lucide/svelte": "^0.533.0",
     "@sveltejs/adapter-vercel": "^5.8.1",
     "@sveltejs/kit": "^2.26.1",
     "@sveltejs/vite-plugin-svelte": "^6.1.0",
@@ -31,6 +30,7 @@
     "@fontsource/jetbrains-mono": "^5.2.6",
     "@fontsource/manrope": "^5.2.6",
     "@vercel/analytics": "^1.5.0",
-    "open-props": "^1.7.16"
+    "open-props": "^1.7.16",
+    "@lucide/svelte": "^0.533.0"
   }
 }

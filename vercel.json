@@ -7,5 +7,17 @@
                 "Location": "https://picci.app/01hmkhen2x2jp3v10v9aa372yn"
             }
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "kajakken.barelyboris.be"
+                }
+            ],
+            "destination": "http://www.dewimpe.be/article/kanoKajak.html"
+        }
     ]
 }

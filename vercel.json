@@ -1,14 +1,11 @@
 {
-    "rewrites": [
+    "routes": [
         {
-            "source": "/:path*",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "kajakken.barelyboris.be"
-                }
-            ],
-            "destination": "http://www.dewimpe.be/article/kanoKajak.html"
+            "src": "/kajakken",
+            "status": 307,
+            "headers": {
+                "Location": "http://www.dewimpe.be/article/kanoKajak.html"
+            }
         }
     ]
 }

@@ -41,7 +41,7 @@
             />
         </clipPath>
     </defs>
-    <a href="/">
+    <a href="/" aria-label="Home">
         <path
             id="bear"
             transform="matrix(15.132 0 0 15.132 -664.62 -165.45)"

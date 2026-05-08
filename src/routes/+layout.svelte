@@ -10,6 +10,8 @@
   import Logo from "$lib/Logo.svelte";
   import Footer from "$lib/footer/Footer.svelte";
 
+  let { children } = $props();
+
   injectSpeedInsights();
   analyticsConfig({ mode: dev ? "development" : "production" });
 </script>
@@ -19,12 +21,12 @@
 </header>
 <Navigation />
 <div id="signIn"><Profile /></div>
-<main><slot /></main>
+<main>{@render children()}</main>
 <footer>
   <Footer />
 </footer>
 
-<style type="css">
+<style>
   :global(body) {
     display: grid;
     height: 100%;

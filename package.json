@@ -13,25 +13,26 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "^5.8.1",
-    "@sveltejs/kit": "^2.26.1",
-    "@sveltejs/vite-plugin-svelte": "^6.1.0",
-    "svelte": "^5.37.1",
-    "svelte-check": "^4.3.0",
+    "@sveltejs/adapter-vercel": "^6.3.3",
+    "@sveltejs/kit": "^2.59.1",
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "svelte": "^5.55.5",
+    "svelte-check": "^4.4.8",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.6",
-    "vite-plugin-devtools-json": "^0.4.1"
+    "typescript": "^6.0.3",
+    "vite": "^8.0.11",
+    "vite-plugin-devtools-json": "^1.0.0",
+    "@types/node": "^25.6.2"
   },
   "type": "module",
   "dependencies": {
-    "@auth/sveltekit": "latest",
-    "@fontsource/inconsolata": "^5.2.6",
-    "@fontsource/jetbrains-mono": "^5.2.6",
-    "@fontsource/manrope": "^5.2.6",
-    "@lucide/svelte": "^0.533.0",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
-    "open-props": "^1.7.16"
+    "@auth/sveltekit": "^1.11.2",
+    "@fontsource/inconsolata": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/manrope": "^5.2.8",
+    "@lucide/svelte": "^1.14.0",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "open-props": "^1.7.23"
   }
 }

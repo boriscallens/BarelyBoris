@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script lang="ts" module>
 	export type PhotoAlbum = {
 		id: number;
 		name: string;
@@ -9,13 +9,13 @@
 </script>
 
 <script lang="ts">
-	export let album: PhotoAlbum = {
+	let { album = {
         id: 0,
         name: "",
         coverUri: "",
         slug: "",
         itemCount: 0
-    };
+    } }: { album: PhotoAlbum } = $props();
 </script>
 
 <a class="gallery-album" href="./">

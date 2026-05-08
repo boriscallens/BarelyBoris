@@ -11,7 +11,7 @@
 	<div class="description">I wanted a place to store my projects and experiments. This is that place</div>
 </section>
 
-<style type="css">
+<style>
 	section{
 		height: 100%;
 		display: grid;
@@ -19,7 +19,7 @@
 		grid-template-areas:
 			"barely boris"
 			"barely tagline"
-			"barely description";	
+			"barely description";
 		align-content: center;
 	}
 	h1 {
@@ -28,7 +28,7 @@
 		width: 2ch;
 		padding-left: var(--size-1);
 
-		color: var(--brand);	
+		color: var(--brand);
 
 		text-transform: uppercase;
 		font-weight: 900;
@@ -51,5 +51,5 @@
 	.description{
 		grid-area: description;
 		font-size: var(--font-size-fluid-1);
-	} 
+	}
 </style>

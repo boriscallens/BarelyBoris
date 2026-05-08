@@ -5,8 +5,7 @@ import { AUTH_TRUST_HOST } from '$env/static/private';
 import BarelyAuth0 from "$lib/auth/BarelyAuth0";
 import FakeProvider from "$lib/auth/FakeCredentials";
 
-let providers = [BarelyAuth0()];
-if(dev) providers = [BarelyAuth0(), FakeProvider()];
+const providers = dev ? [BarelyAuth0(), FakeProvider()] : [BarelyAuth0()];
 
 export const { handle } = SvelteKitAuth({
   providers,

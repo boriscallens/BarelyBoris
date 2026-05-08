@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import Navigation from "./Navigation.svelte";
-  let signedIn = $page.data.session;
+  let signedIn = $derived(page.data.session);
 </script>
 
 <header>
@@ -18,7 +18,7 @@
   </div>
 </header>
 
-<style type="css">
+<style>
   header {
     height: var(--element-height);
     display: flex;

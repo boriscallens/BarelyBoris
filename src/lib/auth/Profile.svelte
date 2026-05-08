@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
     import { LogIn, LogOut } from "@lucide/svelte";
-    let signedIn = $page.data.session;
+    let signedIn = $derived(page.data.session);
 </script>
 
 <div data-sveltekit-preload-data="off">

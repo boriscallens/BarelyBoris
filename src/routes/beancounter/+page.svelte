@@ -1,11 +1,13 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
-  import { tweened } from 'svelte/motion';
+  type Step = {
+    code: string;
+    timer: number;
+    verb: string;
+    label: string;
+  };
 
-  let cupVolume = writable(350); // initial cup volume
-  let steps: any[];
-
-  $: beanWeight = ($cupVolume / 17);
+  let cupVolume = $state(350); // initial cup volume
+  let beanWeight = $derived(cupVolume / 17);
 
   // 0m00s:         pour    : Pour 50g of water to bloom
   // 0m10s - 0m15s: swirl   : Gently Swirl
@@ -20,7 +22,7 @@
   // 2m00s - 2m05s: swirl-2 : Gently swirl
   // 2m05s - 3m00s: drain-4 : Final drawdown
 
-  $: steps = [
+  let steps: Step[] = $derived([
     { code: "pour", timer: 10, verb: "Pour", label: "50g of water" },
     { code: "swirl", timer: 5, verb: "Swirl", label: "gently" },
     { code: "bloom", timer: 45, verb: "Bloom", label: "" },
@@ -28,28 +30,28 @@
       code: "add-1",
       timer: 15,
       verb: "Pour",
-      label: `up to ${($cupVolume * 0.4).toFixed(0)}g total (40% total weight)`,
+      label: `up to ${(cupVolume * 0.4).toFixed(0)}g total (40% total weight)`,
     },
     { code: "drain-1", timer: 10, verb: "Rest", label: "" },
     {
       code: "add-2",
       timer: 10,
       verb: "Pour",
-      label: `up to ${($cupVolume * 0.6).toFixed(0)}g total (60% total weight)`,
+      label: `up to ${(cupVolume * 0.6).toFixed(0)}g total (60% total weight)`,
     },
     { code: "drain-2", timer: 10, verb: "Rest", label: "" },
     {
       code: "pour-3",
       timer: 10,
       verb: "Pour",
-      label: `up to ${($cupVolume * 0.8).toFixed(0)}g total (80% total weight)`,
+      label: `up to ${(cupVolume * 0.8).toFixed(0)}g total (80% total weight)`,
     },
     { code: "drain-3", timer: 10, verb: "Rest", label: "" },
     {
       code: "pour-4",
       timer: 10,
       verb: "Pour",
-      label: `up to ${$cupVolume.toFixed(0)}g total (fill the cup)`,
+      label: `up to ${cupVolume.toFixed(0)}g total (fill the cup)`,
     },
     { code: "swirl-2", timer: 5, verb: "Swirl", label: "gently" },
     {
@@ -58,13 +60,13 @@
       verb: "Drain",
       label: "until everything is gone",
     },
-  ];
+  ]);
 
-  let currentTimerCode = writable("");
-  let remainingSeconds = writable(0);
-  let finishedStepCodes = writable<string[]>([]);
+  let currentTimerCode = $state("");
+  let remainingSeconds = $state(0);
+  let finishedStepCodes = $state<string[]>([]);
 
-  let timer: number = 0;
+  let timer: ReturnType<typeof setInterval> | null = null;
 
   function startTimer(stepCode: string) {
     let step = steps.find((s) => s.code === stepCode);
@@ -73,32 +75,28 @@
       return;
     }
 
-    currentTimerCode.set(stepCode);
-    remainingSeconds.set(step.timer);
+    currentTimerCode = stepCode;
+    remainingSeconds = step.timer;
 
     if (timer) {
       clearInterval(timer);
     }
 
     timer = setInterval(() => {
-      remainingSeconds.update((n) => {
-        if (n <= 1) {
-          clearInterval(timer);
-          finishedStepCodes.update((codes) =>{
-            console.debug(`Finished step ${stepCode}`,  [...codes, stepCode]);
-            return [...codes, stepCode]
-          });
-          return 0;
-        } else {
-          return n - 1;
-        }
-      });
+      if (remainingSeconds <= 1) {
+        if (timer) clearInterval(timer);
+        console.debug(`Finished step ${stepCode}`, [...finishedStepCodes, stepCode]);
+        finishedStepCodes = [...finishedStepCodes, stepCode];
+        remainingSeconds = 0;
+      } else {
+        remainingSeconds -= 1;
+      }
     }, 1000);
   }
 </script>
 
 <h1>Beancounter</h1>
-<h3>A simple tool to make your coffee brewing unnecesseraly complicated.</h3>
+<h3>A simple tool to make your coffee brewing unnecessarily complicated.</h3>
 <p>
   Based on James Hoffmann's
   <a href="https://www.youtube.com/watch?v=1oB1oDrDkHM">A Better 1 Cup V60 Technique</a>
@@ -106,25 +104,25 @@
 
 <form>
   <label for="cup-volume">Enter your cup volume (in ml):</label>
-  <input type="number" bind:value={$cupVolume} min="200" max="500" step="50" />
-  <span>and <strong>{beanWeight.toFixed(0)}</strong> g off lightly roasted beans</span>
+  <input type="number" bind:value={cupVolume} min="200" max="500" step="50" />
+  <span>and <strong>{beanWeight.toFixed(0)}</strong> g of lightly roasted beans</span>
 </form>
 
 <ol>
   {#each steps as step, i}
     <li>
-      {#if $finishedStepCodes.findIndex((code) => code === step.code) === -1}
+      {#if finishedStepCodes.findIndex((code) => code === step.code) === -1}
         <button
           class="button-with-progress"
-          on:click={() => startTimer(step.code)}
+          onclick={() => startTimer(step.code)}
         >
           <span class="button-text"
-            >{step.verb}{$currentTimerCode === step.code ? "ing" : ""}</span
+            >{step.verb}{currentTimerCode === step.code ? "ing" : ""}</span
           >
-          {#if $currentTimerCode === step.code && $remainingSeconds > 0}
+          {#if currentTimerCode === step.code && remainingSeconds > 0}
             <div
               class="progress-bar"
-              style="height: {100 - (100 * $remainingSeconds) / step.timer}%"
+              style="height: {100 - (100 * remainingSeconds) / step.timer}%"
             ></div>
           {/if}
         </button>

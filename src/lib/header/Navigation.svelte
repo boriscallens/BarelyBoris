@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { Home, FileLock } from "@lucide/svelte";
 
   const anonymousNavItems = [
@@ -10,23 +10,22 @@
     ...anonymousNavItems,
     { label: "Protected", href: "/protected", icon: FileLock },
   ];
-  const navItems = $page.data.session
-    ? authenticatedNavItems
-    : anonymousNavItems;
+
+  let navItems = $derived(page.data.session ? authenticatedNavItems : anonymousNavItems);
 </script>
 
 {#if navItems.length > 1}
   <nav>
     {#each navItems as navItem}
-      <a href={navItem.href} aria-current={$page.url.pathname === navItem.href}>
-        <svelte:component this={navItem.icon} />
+      <a href={navItem.href} aria-current={page.url.pathname === navItem.href}>
+        <navItem.icon />
         {navItem.label}
       </a>
     {/each}
   </nav>
 {/if}
 
-<style type="css">
+<style>
   nav {
     grid-area: nav;
     display: flex;

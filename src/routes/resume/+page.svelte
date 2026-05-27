@@ -186,6 +186,121 @@
 			linear-gradient(180deg, #f8f7fb 0%, #f5f4f8 100%);
 	}
 
+	@media print {
+		@page {
+			margin: 0.75in;
+		}
+
+		:global(body) {
+			min-height: 100%;
+			background: white !important;
+			color: #000;
+			font-size: 11pt;
+			line-height: 1.5;
+		}
+
+		:global(header),
+		:global(nav),
+		:global(#signIn),
+		:global(footer) {
+			display: none !important;
+			visibility: hidden !important;
+			height: 0 !important;
+		}
+
+		.resume-page {
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			height: 90vh;
+		}
+
+		.sidebar {
+			display: grid;
+			grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+			gap: 1rem;
+			align-items: start;
+			break-after: page;
+			page-break-after: always;
+		}
+
+		.detail-stack,
+		.entries,
+		.compact-entries,
+		.chip-list,
+		.bullets {
+			gap: 0.75rem;
+		}
+
+		.sidebar {
+			position: static;
+		}
+
+		.summary-card {
+			align-self: start;
+		}
+
+		.detail-stack {
+			break-before: page;
+			page-break-before: always;
+		}
+
+		/* .profile-card,
+		.summary-card,
+		.resume-section {
+			background: white;
+			box-shadow: none;
+			backdrop-filter: none;
+		} */
+
+
+		.profile-card,
+		.summary-card,
+		.detail-stack > article,
+		.entry,
+		.chip-list li,
+		.bullets li {
+			all: unset;
+			break-inside: avoid;
+			page-break-inside: avoid;
+		}
+
+		.resume-header,
+		.entry {
+			break-after: avoid;
+			page-break-after: avoid;
+		}
+
+		.summary-card p,
+		.description,
+		.chip-list li,
+		.bullets li {
+			font-size: 10pt;
+			line-height: 1.45;
+		}
+
+		.profile-card {
+			min-height: auto;
+			padding: 1rem;
+			gap: 0.9rem;
+		}
+
+		.portrait-ring {
+			width: 180px;
+		}
+
+		.resume-section {
+			padding: 1rem 1.05rem;
+		}
+
+		.description {
+			background: #f3f4f6;
+			padding: 0.75rem 0.85rem;
+		}
+	}
+
 	.resume-page {
 		width: min(1280px, calc(100% - 2rem));
 		margin: 0 auto;

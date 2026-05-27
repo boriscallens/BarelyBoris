@@ -103,7 +103,7 @@
   color: var(--text-1);
   white-space: nowrap;
   text-decoration: none;
-  box-shadow: var(--shadow-2);  
+  box-shadow: var(--shadow-2);
 }
 
 .btn.brand {

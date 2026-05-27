@@ -12,7 +12,6 @@
 			period: '2023-01 - 2025-12',
 			title: 'Principal Engineer',
 			company: 'iChoosr',
-			location: 'Antwerp',
 			description:
 				'At iChoosr I had an amazing time bringing the New Horizons platform live and scaling it up. I learned to really appreciate the highly rewarding, fast-paced start-up environment, got familiar with Azure quickly, and had the chance to steer an international team in the last few years of my career.'
 		},
@@ -20,21 +19,18 @@
 			period: '2020-04 - 2022-12',
 			title: 'Technical Lead',
 			company: 'iChoosr',
-			location: 'Antwerp, BE',
 			description: 'Technical leadership focused on delivery, alignment, and guiding the platform as the team and product matured.'
 		},
 		{
 			period: '2018-11 - 2020-04',
 			title: 'Full-stack Developer',
 			company: 'iChoosr',
-			location: 'Antwerp, BE',
 			description: 'Built across the stack while the product evolved and the team scaled.'
 		},
 		{
 			period: '2013-12 - 2018-11',
 			title: 'Senior .net developer',
 			company: 'SD Worx',
-			location: '',
 			description:
 				'Responsible for development after the initial build, technical support, and later work on a legacy migration path. I learned the reality of old code bases, multi-tenancy, SQL performance work, and the opportunities with containerized environments.'
 		},
@@ -42,21 +38,18 @@
 			period: '2012-01 - 2012-12',
 			title: 'Co-founder',
 			company: 'Bojojoing',
-			location: '',
 			description: 'We created a simple website on the side and needed a VAT number.'
 		},
 		{
 			period: '2007-01 - 2010-08',
 			title: 'Jr. .net Developer',
 			company: 'Coteng',
-			location: '',
 			description: 'My first serious solo .net programming project taught me a lot through self-study and iteration.'
 		},
 		{
 			period: '2007-06 - 2007-10',
 			title: 'Jr. Internal Development and Technical Support Europe, the Middle East and Africa',
 			company: 'FedEx',
-			location: '',
 			description: 'Internal development and technical support with a migration from MQ to JMS technology.'
 		}
 	];
@@ -100,11 +93,11 @@
 					<MapPin class="location-icon" aria-hidden="true" size={16} strokeWidth={2} />
 					Historical Center of Antwerp, BE
 				</p>
-				<a class="contact-link" href="mailto:boris.callens+resume@gmail.com?subject=Contact%20from%20Resume" target="_blank">
+				<a class="contact-link" href="mailto:boris.callens+linkedin@gmail.com">
 					<Mail class="contact-icon" aria-hidden="true" size={16} strokeWidth={2} />
-					boris.callens+resume@gmail.com
+					boris.callens+linkedin@gmail.com
 				</a>
-				<a class="contact-link" href="https://www.linkedin.com/in/boriscallens" target="_blank">
+				<a class="contact-link" href="https://www.linkedin.com/in/boriscallens" target="_blank" rel="noreferrer">
 					<ExternalLink class="contact-icon" aria-hidden="true" size={16} strokeWidth={2} />
 					www.linkedin.com/in/boriscallens
 				</a>
@@ -113,7 +106,7 @@
 		<div class="summary-card">
 			<h2>Summary</h2>
 
-			{#each summaryParagraphs as paragraph}
+			{#each summaryParagraphs as paragraph (paragraph)}
 				<p>{paragraph}</p>
 			{/each}
 		</div>
@@ -127,17 +120,12 @@
 			</header>
 
 			<div class="entries">
-				{#each workExperience as experience}
+				{#each workExperience as experience (experience.period)}
 					<article class="entry">
-						<div class="entry-top">
-							<p class="period">{experience.period}</p>
-							<h3>{experience.title}</h3>
-							<p class="company">{experience.company}{experience.location ? `, ${experience.location}` : ''}</p>
-						</div>
-
-						<div class="entry-body">
-							<p>{experience.description}</p>
-						</div>
+						<p class="period">{experience.period}</p>
+						<h3>{experience.title}</h3>
+						<p class="company">{experience.company}</p>
+						<span class="description">{experience.description}</span>
 					</article>
 				{/each}
 			</div>
@@ -150,19 +138,14 @@
 			</header>
 
 			<div class="entries compact-entries">
-				{#each education as item}
+				{#each education as item (item.period)}
 					<article class="entry compact-entry">
-						<div class="entry-top">
-							<p class="period">{item.period}</p>
-							{#if item.title}
-								<h3>{item.title}</h3>
-							{/if}
-							<p class="company">{item.institution}</p>
-						</div>
-
-						<div class="entry-body">
-							<p>{item.description}</p>
-						</div>
+						<p class="period">{item.period}</p>
+						{#if item.title}
+							<h3>{item.title}</h3>
+						{/if}
+						<p class="company">{item.institution}</p>
+						<span class="description">{item.description}</span>
 					</article>
 				{/each}
 			</div>
@@ -175,7 +158,7 @@
 			</header>
 
 			<ul class="chip-list">
-				{#each qualifications as item}
+				{#each qualifications as item (item)}
 					<li>{item}</li>
 				{/each}
 			</ul>
@@ -188,7 +171,7 @@
 			</header>
 
 			<ul class="bullets">
-				{#each achievements as achievement}
+				{#each achievements as achievement (achievement)}
 					<li>{achievement}</li>
 				{/each}
 			</ul>
@@ -281,15 +264,6 @@
 		color: inherit;
 	}
 
-	.contact-icon,
-	.location-icon {
-		flex-shrink: 0;
-	}
-
-	.location-icon {
-		color: rgba(255, 255, 255, 0.9);
-	}
-
 	.identity h1 {
 		margin: 0;
 		font-size: clamp(2rem, 4vw, 2.75rem);
@@ -362,21 +336,23 @@
 
 	.entry {
 		display: grid;
-		gap: 0.65rem;
-	}
-
-	.entry-top {
-		display: grid;
-		gap: 0.2rem;
+		grid-template-columns: auto minmax(0, 1fr) ;
+		grid-template-areas:
+			'period .'
+			'title company'
+			'description description';
+		row-gap: 0.3rem;
 	}
 
 	.period {
+		grid-area: period;
 		margin: 0;
 		font-size: 0.8rem;
 		color: #7f8695;
 	}
 
-	.entry-top h3 {
+	.entry h3 {
+		grid-area: title;
 		margin: 0;
 		font-size: 1.65rem;
 		line-height: 1.08;
@@ -386,27 +362,28 @@
 	}
 
 	.company {
+		grid-area: company;
 		margin: 0;
 		font-size: 1rem;
 		color: #ff6f61;
 		justify-self: end;
 		text-align: right;
+		align-self: end;
 	}
 
-	.entry-body {
+	.description {
+		grid-area: description;
+		display: block;
+		margin: 0;
 		background: rgba(242, 245, 249, 0.95);
 		border-radius: 0.65rem;
 		padding: 0.9rem 0.95rem;
-	}
-
-	.entry-body p {
-		margin: 0;
 		color: #596273;
 		line-height: 1.55;
 		font-size: 0.95rem;
 	}
 
-	.compact-entry .entry-top h3 {
+	.compact-entry h3 {
 		font-size: 1.25rem;
 	}
 
@@ -453,7 +430,7 @@
 			min-height: 0;
 		}
 
-		.entry-top h3 {
+		.entry h3 {
 			font-size: 1.35rem;
 		}
 

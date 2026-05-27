@@ -2,7 +2,7 @@
 	import { BadgeCheck, BriefcaseBusiness, GraduationCap, Mail, ExternalLink, MapPin, Trophy } from '@lucide/svelte';
 
 	const summaryParagraphs = [
-		"My best value is achieved when I can get to know people and their processes thoroughly so I can help them solve problems or discover opportunities. I function well in a team thanks to my experience in most project management processes and tools as they evolved with me throughout my career.",
+		"I'm at my best when I can get to know people and their processes thoroughly so I can help them solve problems or discover opportunities. I function well in a team thanks to my experience in most project management processes and tools as they evolved with me throughout my career.",
 		"Working in varied industries of mixed sizes has shown me when to focus on being fast and self-steering as well as how to function in highly connected teams and manage complex SLAs and project planning. My most recent achievements involved working with an international team to scale up iChoosr's group buying software to match the company's rapid growth.",
 		"We moved from a self-hosted Ruby on Rails application to a fully scalable, easy to manage suite on Azure. We supported customer-facing and back-office portals as well as various third-party integrations, and we grew to support complex localizations, agile product diversification, and steep concurrent load growth. You can ask me anything about C#, SQL, Entity Framework, HTML, TypeScript, vertical slicing, C4 diagrams, the culture map, SvelteKit, or my home lab."
 	];
@@ -13,42 +13,42 @@
 			title: 'Principal Engineer',
 			company: 'iChoosr',
 			description:
-				'At iChoosr I had an amazing time bringing the New Horizons platform live and scaling it up. I learned to really appreciate the highly rewarding, fast-paced start-up environment, got familiar with Azure quickly, and had the chance to steer an international team in the last few years of my career.'
+				'At iChoosr I had an amazing time bringing the New Horizons platform live and scaling it up. I learned to really appreciate the highly rewarding, fast-paced start-up environment, got familiar with Azure. As a principal engineer, I had the chance to steer the platform in its final iteration and draw the first lines for its successor.'
 		},
 		{
 			period: '2020-04 - 2022-12',
 			title: 'Technical Lead',
 			company: 'iChoosr',
-			description: 'Technical leadership focused on delivery, alignment, and guiding the platform as the team and product matured.'
+			description: 'Was selected as Technical Lead representing the Belgium team. Together with the Dutch and Polish ones we gathered periodically to tackle overarching problems that became apparent now the software was slowly maturing. We extracted satellite APIs based on the same domains as the team structure was set up. We extended the platform with another UI and set up various integrations with our external suppliers and communities.'
 		},
 		{
 			period: '2018-11 - 2020-04',
 			title: 'Full-stack Developer',
 			company: 'iChoosr',
-			description: 'Built across the stack while the product evolved and the team scaled.'
+			description: 'Helped building out the new platform in an international team. In a team of full stack developers we all were dispersed amongst our business users and support employees to discover the right features and bring them forward for analysis, planning, development and finally deployment. We created a central monolithic API and used it for the three different frontends for various user groups both internal and external.'
 		},
 		{
 			period: '2013-12 - 2018-11',
 			title: 'Senior .net developer',
 			company: 'SD Worx',
 			description:
-				'Responsible for development after the initial build, technical support, and later work on a legacy migration path. I learned the reality of old code bases, multi-tenancy, SQL performance work, and the opportunities with containerized environments.'
+				'Responsible for development after the initial setup of the Flex Income Plan proof of concept. Supported technical operations and provided last line user support. Later helped in the team responsible for the MyWorkAndMe platform and helped embedding the legacy C++ XBlox application into an ASP.net MVC website. I learned the reality of old code bases, multi-tenancy, SQL performance work, and the opportunities with containerized environments.'
 		},
 		{
 			period: '2012-01 - 2012-12',
 			title: 'Co-founder',
 			company: 'Bojojoing',
-			description: 'We created a simple website on the side and needed a VAT number.'
+			description: 'We created a simple website for a real estate initiative next to Berchem Station. My friend and I needed a VAT number.'
 		},
 		{
 			period: '2007-01 - 2010-08',
-			title: 'Jr. .net Developer',
+			title: 'Jr. .NET Developer',
 			company: 'Coteng',
-			description: 'My first serious solo .net programming project taught me a lot through self-study and iteration.'
+			description: 'My first serious solo .NET programming project taught me a lot through self-study and iteration. I built a website in ASP.net MVC 1.0 that could stream in lots of color swatches generated by a proprietary COM object and learned using Lucene for fast search.'
 		},
 		{
 			period: '2007-06 - 2007-10',
-			title: 'Jr. Internal Development and Technical Support Europe, the Middle East and Africa',
+			title: 'Jr. Internal Development and Technical Support EMEA',
 			company: 'FedEx',
 			description: 'Internal development and technical support with a migration from MQ to JMS technology.'
 		}
@@ -151,7 +151,7 @@
 			</div>
 		</article>
 
-		<article class="resume-section split-section">
+		<!-- <article class="resume-section split-section">
 			<header class="resume-header">
 				<BadgeCheck class="section-icon" aria-hidden="true" size={18} strokeWidth={2} />
 				<h2>Qualifications</h2>
@@ -175,7 +175,7 @@
 					<li>{achievement}</li>
 				{/each}
 			</ul>
-		</article>
+		</article> -->
 	</div>
 </section>
 

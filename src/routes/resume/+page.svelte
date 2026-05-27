@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { BadgeCheck, BriefcaseBusiness, GraduationCap, Mail, ExternalLink, MapPin, Trophy } from '@lucide/svelte';
+
 	const summaryParagraphs = [
 		"My best value is achieved when I can get to know people and their processes thoroughly so I can help them solve problems or discover opportunities. I function well in a team thanks to my experience in most project management processes and tools as they evolved with me throughout my career.",
 		"Working in varied industries of mixed sizes has shown me when to focus on being fast and self-steering as well as how to function in highly connected teams and manage complex SLAs and project planning. My most recent achievements involved working with an international team to scale up iChoosr's group buying software to match the company's rapid growth.",
@@ -89,16 +91,25 @@
 <section class="resume-page" aria-label="Resume for Boris Callens">
 	<aside class="sidebar" aria-label="Profile and summary">
 		<div class="profile-card">
-			<img class="portrait" src="/portrait.jpg" alt="Portrait of Boris Callens" />
-
+			<div class="portrait-ring">
+				<img class="portrait" src="/portrait.jpg" alt="Portrait of Boris Callens" />
+			</div>
 			<div class="identity">
 				<h1>Boris Callens</h1>
-				<p class="location">Antwerp, BE</p>
-				<a href="mailto:boris.callens+linkedin@gmail.com">boris.callens+linkedin@gmail.com</a>
-				<a href="https://www.linkedin.com/in/boriscallens" target="_blank" rel="noreferrer">www.linkedin.com/in/boriscallens</a>
+				<p class="location">
+					<MapPin class="location-icon" aria-hidden="true" size={16} strokeWidth={2} />
+					Historical Center of Antwerp, BE
+				</p>
+				<a class="contact-link" href="mailto:boris.callens+resume@gmail.com?subject=Contact%20from%20Resume" target="_blank">
+					<Mail class="contact-icon" aria-hidden="true" size={16} strokeWidth={2} />
+					boris.callens+resume@gmail.com
+				</a>
+				<a class="contact-link" href="https://www.linkedin.com/in/boriscallens" target="_blank">
+					<ExternalLink class="contact-icon" aria-hidden="true" size={16} strokeWidth={2} />
+					www.linkedin.com/in/boriscallens
+				</a>
 			</div>
 		</div>
-
 		<div class="summary-card">
 			<h2>Summary</h2>
 
@@ -111,7 +122,7 @@
 	<div class="detail-stack">
 		<article class="resume-section">
 			<header class="resume-header">
-				<span class="section-icon" aria-hidden="true">⌂</span>
+				<BriefcaseBusiness class="section-icon" aria-hidden="true" size={18} strokeWidth={2} />
 				<h2>Work experience</h2>
 			</header>
 
@@ -134,7 +145,7 @@
 
 		<article class="resume-section">
 			<header class="resume-header">
-				<span class="section-icon" aria-hidden="true">⌂</span>
+				<GraduationCap class="section-icon" aria-hidden="true" size={18} strokeWidth={2} />
 				<h2>Education</h2>
 			</header>
 
@@ -159,7 +170,7 @@
 
 		<article class="resume-section split-section">
 			<header class="resume-header">
-				<span class="section-icon" aria-hidden="true">⌂</span>
+				<BadgeCheck class="section-icon" aria-hidden="true" size={18} strokeWidth={2} />
 				<h2>Qualifications</h2>
 			</header>
 
@@ -172,7 +183,7 @@
 
 		<article class="resume-section split-section">
 			<header class="resume-header">
-				<span class="section-icon" aria-hidden="true">⌂</span>
+				<Trophy class="section-icon" aria-hidden="true" size={18} strokeWidth={2} />
 				<h2>Achievements</h2>
 			</header>
 
@@ -214,7 +225,7 @@
 	.resume-section {
 		background: rgba(255, 255, 255, 0.88);
 		border: 1px solid rgba(115, 122, 145, 0.16);
-		box-shadow: 0 22px 50px rgba(25, 31, 46, 0.08);
+		box-shadow: 0 10px 24px rgba(25, 31, 46, 0.05);
 		backdrop-filter: blur(10px);
 	}
 
@@ -229,14 +240,29 @@
 		gap: 1.25rem;
 	}
 
-	.portrait {
-		width: 155px;
+	.portrait-ring {
+		position: relative;
+		width: 250px;
 		aspect-ratio: 1;
-		object-fit: cover;
-		clip-path: polygon(50% 0%, 85% 12%, 100% 50%, 85% 88%, 50% 100%, 15% 88%, 0% 50%, 15% 12%);
-		border: 6px solid rgba(255, 255, 255, 0.94);
-		box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+		padding: 0.5rem;
+		box-sizing: border-box;
+		display: grid;
+		place-items: center;
+	}
+
+	.portrait-ring::before {
+		content: '';
+		position: absolute;
+		inset: 0;
 		background: #fff;
+		clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	}
+
+	.portrait {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 	}
 
 	.identity {
@@ -244,6 +270,24 @@
 		justify-items: center;
 		gap: 0.55rem;
 		text-align: center;
+	}
+
+	.contact-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		justify-self: start;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.contact-icon,
+	.location-icon {
+		flex-shrink: 0;
+	}
+
+	.location-icon {
+		color: rgba(255, 255, 255, 0.9);
 	}
 
 	.identity h1 {
@@ -259,6 +303,14 @@
 		font-size: 0.95rem;
 		color: inherit;
 		text-decoration: none;
+	}
+
+	.location {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		justify-self: start;
+		text-align: left;
 	}
 
 	.identity a:hover {
@@ -301,16 +353,6 @@
 		padding-bottom: 0.75rem;
 		border-bottom: 1px solid rgba(107, 120, 145, 0.2);
 		margin-bottom: 1rem;
-	}
-
-	.section-icon {
-		display: inline-grid;
-		place-items: center;
-		width: 1.15rem;
-		height: 1.15rem;
-		border-radius: 999px;
-		color: #6e7587;
-		font-size: 0.85rem;
 	}
 
 	.entries {

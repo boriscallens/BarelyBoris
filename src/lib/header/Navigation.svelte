@@ -1,9 +1,10 @@
 <script lang="ts">
   import { page } from "$app/state";
-  import { Home, FileLock } from "@lucide/svelte";
+  import { FileLock, FileText, House } from "@lucide/svelte";
 
   const anonymousNavItems = [
-    { label: "Home", href: "/", icon: Home },
+    { label: "Home", href: "/", icon: House },
+    { label: "Resume", href: "/resume", icon: FileText },
     // { label: "Fashionably Late", href: "/fashionablylate" },
   ];
   const authenticatedNavItems = [

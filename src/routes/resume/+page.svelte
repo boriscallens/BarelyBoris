@@ -229,10 +229,10 @@
 		.detail-stack,
 		.entries,
 		.compact-entries,
-		.chip-list,
+		/* .chip-list,
 		.bullets {
 			gap: 0.75rem;
-		}
+		} */
 
 		.sidebar {
 			position: static;
@@ -260,12 +260,12 @@
 		.summary-card,
 		.detail-stack > article,
 		.entry,
-		.chip-list li,
+		/* .chip-list li,
 		.bullets li {
 			all: unset;
 			break-inside: avoid;
 			page-break-inside: avoid;
-		}
+		} */
 
 		.resume-header,
 		.entry {
@@ -275,11 +275,11 @@
 
 		.summary-card p,
 		.description,
-		.chip-list li,
+		/* .chip-list li,
 		.bullets li {
 			font-size: 10pt;
 			line-height: 1.45;
-		}
+		} */
 
 		.profile-card {
 			min-height: auto;
@@ -502,27 +502,27 @@
 		font-size: 1.25rem;
 	}
 
-	.split-section {
+	/* .split-section {
 		grid-template-columns: 1fr;
-	}
+	} */
 
-	.chip-list,
+	/* .chip-list,
 	.bullets {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 		display: grid;
 		gap: 0.65rem;
-	}
+	} */
 
-	.chip-list li,
+	/* .chip-list li,
 	.bullets li {
 		background: rgba(242, 245, 249, 0.95);
 		border-radius: 0.65rem;
 		padding: 0.85rem 0.95rem;
 		color: #596273;
 		line-height: 1.45;
-	}
+	} */
 
 	@media (max-width: 960px) {
 		.resume-page {
